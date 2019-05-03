@@ -1,0 +1,13 @@
+
+server:
+  port: 8000
+  context-path: /ssdb
+logging:
+  level:
+    com:
+      xiaoadong:
+        ss_use_db: debug
+securityweb:
+  dbauth:
+#    loginType: REDIRECT
+#    loginPage: /xxx.html

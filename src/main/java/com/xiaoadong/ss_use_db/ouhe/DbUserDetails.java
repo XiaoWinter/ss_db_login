@@ -1,4 +1,4 @@
-package com.xiaoadong.ss_use_db.web_security.ouhe;
+package com.xiaoadong.ss_use_db.ouhe;
 
 
 import lombok.Getter;

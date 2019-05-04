@@ -1,8 +1,12 @@
 package com.xiaoadong.ss_use_db.web_security.code;
 
+import com.xiaoadong.ss_use_db.web_security.properties.ImageProperties;
+import com.xiaoadong.ss_use_db.web_security.properties.SecurityConstants;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.imageio.ImageIO;
@@ -16,22 +20,28 @@ public class ValidateCodeController {
 
     public static final String SESSION_KEY="SESSION_KEY_IMAGE";
 
+
     @Autowired
     private VerifyCodeUtil imgGenUtil;
 
     @Autowired
-    private ImageProperty imageProperty;
+    private ImageProperties imageProperty;
 
-    @GetMapping("code/image")
-    public void createCode(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        //得到图形验证码
-        ImageCode imageCode = createImageCode(request);
-        //写入session
-        fillSession(request,SESSION_KEY,imageCode);
-        // 设置返回内容
-        response.setContentType("image/jpg");
-        //图片写入响应
-        ImageIO.write(imageCode.getImage(),"JPEG", response.getOutputStream());
+
+
+    @GetMapping(SecurityConstants.codeurl+"{type}")
+    public void createCode(HttpServletRequest request, HttpServletResponse response, @PathVariable String type) throws IOException {
+        if (StringUtils.equals(type,"image")){
+            //得到图形验证码
+            ImageCode imageCode = createImageCode(request);
+            //写入session
+            fillSession(request,SESSION_KEY,imageCode);
+            // 设置返回内容
+            response.setContentType("image/jpg");
+            //图片写入响应
+            ImageIO.write(imageCode.getImage(),"JPEG", response.getOutputStream());
+        }
+
     }
 
     private void fillSession(HttpServletRequest request, String sessionKey, Object obj) {

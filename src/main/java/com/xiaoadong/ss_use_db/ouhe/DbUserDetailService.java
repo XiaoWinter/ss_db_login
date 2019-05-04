@@ -1,4 +1,4 @@
-package com.xiaoadong.ss_use_db.web_security.ouhe;
+package com.xiaoadong.ss_use_db.ouhe;
 
 import com.xiaoadong.ss_use_db.mapper.UserMapper;
 import com.xiaoadong.ss_use_db.pojo.User;

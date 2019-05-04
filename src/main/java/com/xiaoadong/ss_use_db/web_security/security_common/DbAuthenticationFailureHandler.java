@@ -2,6 +2,7 @@ package com.xiaoadong.ss_use_db.web_security.security_common;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.xiaoadong.ss_use_db.vo.SimpleExceptionResponse;
+import com.xiaoadong.ss_use_db.web_security.properties.WebSecurityProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.AuthenticationException;

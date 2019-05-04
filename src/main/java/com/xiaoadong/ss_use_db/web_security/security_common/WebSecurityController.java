@@ -1,6 +1,8 @@
 package com.xiaoadong.ss_use_db.web_security.security_common;
 
 import com.xiaoadong.ss_use_db.vo.SimpleResponse;
+import com.xiaoadong.ss_use_db.web_security.properties.SecurityConstants;
+import com.xiaoadong.ss_use_db.web_security.properties.WebSecurityProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
@@ -26,7 +28,6 @@ public class WebSecurityController {
 
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
-
     @Autowired
     private WebSecurityProperties webSecurityProperties;
 
@@ -37,7 +38,7 @@ public class WebSecurityController {
      * @param request
      * @param response
      */
-    @RequestMapping("authentication/require")
+    @RequestMapping(SecurityConstants.authUrl)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public SimpleResponse requireAuthentication(HttpServletRequest request, HttpServletResponse response) throws IOException {
         SavedRequest savedRequest = requestCache.getRequest(request,response);

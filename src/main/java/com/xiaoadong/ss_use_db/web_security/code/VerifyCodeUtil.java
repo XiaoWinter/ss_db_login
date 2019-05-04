@@ -1,5 +1,6 @@
 package com.xiaoadong.ss_use_db.web_security.code;
 
+import com.xiaoadong.ss_use_db.web_security.properties.ImageProperties;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,7 +15,7 @@ import java.util.Random;
 public class VerifyCodeUtil {
 
     @Autowired
-    private ImageProperty imageProperty;
+    private ImageProperties imageProperty;
 
     // 产生随机颜色
     private Color getRandColor() {

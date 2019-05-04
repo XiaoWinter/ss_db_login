@@ -1,5 +1,6 @@
 package com.xiaoadong.ss_use_db.web_security.code;
 
+import com.xiaoadong.ss_use_db.web_security.properties.ImageProperties;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;
@@ -21,7 +22,7 @@ public class ValidateCodeFilter extends OncePerRequestFilter {
     private AuthenticationFailureHandler authenticationFailureHandler;
 
     @Autowired
-    private ImageProperty imageProperty;
+    private ImageProperties imageProperty;
 
     /**
      * 处理 请求

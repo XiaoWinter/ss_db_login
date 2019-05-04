@@ -1,15 +1,15 @@
-package com.xiaoadong.ss_use_db.web_security.code;
+package com.xiaoadong.ss_use_db.web_security.properties;
 
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-@ConfigurationProperties
+@ConfigurationProperties(prefix = "securityweb.imgcode")
 @Component("imageProperty")
 @Getter
 @Setter
-public class ImageProperty {
+public class ImageProperties {
 
     private int fontSize = 40;// 验证码字体 （默认40）
 

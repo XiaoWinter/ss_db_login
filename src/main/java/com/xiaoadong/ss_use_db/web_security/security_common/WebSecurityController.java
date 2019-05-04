@@ -32,6 +32,8 @@ public class WebSecurityController {
 
     /**
      * 当需要身份认证时，跳转到这里
+     * 如果是login请求就返回登陆页
+     * 其他的就发送提醒返回状态吗401 HttpStatus.UNAUTHORIZED
      * @param request
      * @param response
      */
